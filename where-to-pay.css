@@ -1,0 +1,180 @@
+/* --- Base Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+    padding-bottom: 50px;
+}
+
+/* --- Exact Header Layout Aligned Left --- */
+/* --- Exact Header Layout Matching Second Screenshot --- */
+.normal-header {
+    background-color: #ffffff;
+    padding: 30px 0 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Poore header ko screen ke middle/center mein karne ke liye */
+}
+
+.header-content {
+    display: flex;
+    align-items: center; /* Logo aur text ko vertical center (mid) mein alignment deta hai */
+    gap: 35px; /* Logo aur text ke darmiyan exact standard spacing */
+    max-width: 1200px;
+    width: auto;
+}
+
+.logo-box {
+    flex-shrink: 0;
+}
+
+.gov-logo {
+    width: 115px; /* Logo ka size thoda chota kiya taake exact match ho */
+    height: auto;
+    display: block;
+}
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-box h1 {
+    font-size: 38px; /* Balanced font size jaisa second image mein hai */
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.text-box .subtitle {
+    font-size: 17px;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.text-box .methods {
+    font-size: 17px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.text-box .note {
+    font-size: 17px;
+    color: #333333;
+}
+
+
+
+
+/* --- Table View Layout --- */
+.table-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+/* --- ONLY Table Green Heading Row is Sticky --- */
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f7f9fa;
+    z-index: 100;
+    padding: 18px 10px;
+    border-bottom: 2px solid #ebedf0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.th-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Perfect Circular Badges for Green Icons */
+.th-content i {
+    width: 45px;
+    height: 45px;
+    background-color: #e8f7ee;
+    color: #25a85c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.th-content span {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* --- Table Zebra Stripe Structure --- */
+tbody tr {
+    border-bottom: 1px solid #eef0f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f4f6f8;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tbody td {
+    padding: 16px 10px;
+    font-size: 16px;
+    color: #000000;
+    vertical-align: middle;
+}
+
+/* Left Align for Bank Names Column */
+tbody td:first-child {
+    text-align: left;
+    padding-left: 8%;
+    font-weight: 500;
+    width: 25%;
+}
+
+/* Status Icons Formatting */
+.tick {
+    color: #25a85c;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.cross {
+    color: #ff3b30;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* --- Fixed Footer Layout --- */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 14px;
+    z-index: 110;
+}

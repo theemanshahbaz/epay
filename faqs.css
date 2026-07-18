@@ -1,0 +1,163 @@
+/* --- Core Reset & Colors --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f6f7f9;
+    color: #333333;
+    padding: 40px 0;
+}
+
+.faq-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Section Style */
+.faq-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gov-logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.faq-header h1 {
+    font-size: 36px;
+    color: #555555;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Search Bar Styling */
+.search-box {
+    position: relative;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px 25px;
+    border-radius: 30px;
+    border: 1px solid #e1e4e8;
+    background-color: #ffffff;
+    font-size: 15px;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.search-icon {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333333;
+    font-size: 16px;
+}
+
+/* Two-Column Responsive Layout */
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.faq-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Single FAQ Box Item Style */
+.faq-item {
+    background-color: #f1f3f5;
+    border: 1px solid #e2e6ea;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+/* Hide Native Details Arrow */
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+.faq-item summary {
+    list-style: none;
+}
+
+.faq-question {
+    padding: 18px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0b2545;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Dynamic CSS Icon Styling */
+.toggle-icon {
+    color: #00a4e4;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    width: 15px;
+}
+
+/* Pehle Plus (+) lagane ke liye */
+.toggle-icon::before {
+    content: "+";
+}
+
+/* Active Open Box State Changes */
+.faq-item[open] {
+    background-color: #ffffff;
+    border-color: #00a4e4;
+}
+
+/* Open hone par Plus ko badal kar Minus (-) karne ke liye */
+.faq-item[open] .toggle-icon::before {
+    content: "-";
+    color: #ff4d4d; /* Dynamic Minus color changes to red */
+}
+
+.faq-answer {
+    padding: 0 24px 20px 54px;
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Friendly Structure */
+@media (max-width: 900px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}

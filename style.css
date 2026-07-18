@@ -1,0 +1,326 @@
+/* --- Reset Basic Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fcfcfc;
+}
+
+/* --- Navbar Styling --- */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img { height: 50px; }
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-item, .dropbtn {
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-item:hover, .dropbtn:hover { color: #16a34a; }
+
+/* Dropdown */
+.dropdown { position: relative; display: inline-block; }
+.dropdown-toggle { display: none; }
+.dropdown-toggle:checked ~ .dropdown-content { display: block; }
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none; /* Default band */
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+/* Jab checkbox check ho, tabhi show karo */
+.dropdown-toggle:checked ~ .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    border-bottom: 1px solid #f0f0f0;
+}
+.dropdown-content a:hover { background-color: #16a34a !important; color: #ffffff !important; }
+
+/* --- Hero Section Slider (Manual Control) --- */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.slider-container { width: 100%; height: 100%; position: relative; }
+
+.slide-radio { display: none; }
+
+.slides { width: 100%; height: 100%; position: relative; }
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Logic: Sirf selected radio button wali slide show hogi */
+#s1:checked ~ .slides .slide:nth-child(1),
+#s2:checked ~ .slides .slide:nth-child(2),
+#s3:checked ~ .slides .slide:nth-child(3) {
+    opacity: 1;
+}
+
+/* Dots Styling */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Active Dot Logic */
+#s1:checked ~ .dots-container label[for="s1"],
+#s2:checked ~ .dots-container label[for="s2"],
+#s3:checked ~ .dots-container label[for="s3"] {
+    background-color: #1b5e20;
+}
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    /* Auto-move logic: 30 seconds total cycle (10s per slide) */
+    animation: autoSlider 30s infinite;
+}
+
+@keyframes autoSlider {
+    0%, 30% { opacity: 1; }
+    33%, 100% { opacity: 0; }
+}
+
+/* Delay timings */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 10s; }
+.slide:nth-child(3) { animation-delay: 20s; }
+.services-section{
+    padding:80px 0;
+    background:#fff;
+}
+
+.services-container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.services-section h2{
+    text-align:center;
+    font-size:40px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.services-section h2 span{
+    color:#14b8a6;
+}
+
+.subtitle{
+    max-width:850px;
+    margin:0 auto 60px;
+    text-align:center;
+    color:#666;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+}
+
+.card{
+    background:#fafbff;
+    border:1px solid #e8ebf5;
+    border-radius:20px;
+    padding:45px 35px;
+    display:flex;
+    align-items:flex-start;
+    gap:22px;
+    min-height:220px;
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+
+.card img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.card-content{
+    flex:1;
+}
+
+.card-content h3{
+    margin:0 0 15px;
+    font-size:22px;
+    font-weight:700;
+    color:#222;
+    text-align:left;
+}
+
+.card-content p{
+    margin:0;
+    font-size:16px;
+    line-height:1.7;
+    color:#555;
+    text-align:left;
+}
+
+.explore-btn-container{
+    text-align:center;
+    margin-top:50px;
+}
+
+.explore-btn {
+    /* Gradient color */
+    background: linear-gradient(to right, #28a745, #17a2b8); 
+    
+    color: #fff;
+    border: none;
+    padding: 15px 40px; /* Width aur height adjust karne ke liye */
+    font-size: 16px;
+    border-radius: 8px; /* Thora rounded corners */
+    cursor: pointer;
+    transition: 0.3s;
+    
+    /* Arrow ke liye display flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto; /* Center mein lane ke liye */
+    font-weight: 600;
+}
+
+.explore-btn:hover {
+    opacity: 0.9; /* Hover par thora halka ho jayega */
+}
+
+@media(max-width:992px){
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:768px){
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        min-height:auto;
+    }
+
+    .services-section h2{
+        font-size:30px;
+    }
+}
+/* Login and Application Buttons */
+.btn-app { 
+    background-color: #f1f1f1; 
+    color: #333; 
+    padding: 8px 16px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-size: 14px; 
+}
+
+.btn-app:active { 
+    background-color: #28a745 !important; 
+    color: white; 
+}
+
+.btn-login { 
+    background-color: #28a745; 
+    color: white; 
+    padding: 8px 16px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-size: 14px; 
+    font-weight: bold; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+}
+
+.btn-login:hover { 
+    background-color: #218838; 
+}
