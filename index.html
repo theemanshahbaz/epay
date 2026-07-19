@@ -752,5 +752,130 @@
         </div>
     </div>
 </section>
+<section class="contact-section">
+    <div class="contact-card">
+        <!-- Left Side: Text Content -->
+        <div class="contact-info">
+            <h2>Connect with our team, <br>We're ready to help you</h2>
+            <p class="subtitle">Still Have questions or need assistance?</p>
+            <p class="desc">Our support team is always available to guide you and ensure a smooth experience with ePay Punjab.</p>
+        </div>
+
+        <!-- Right Side: Form Content -->
+        <form class="contact-form" onsubmit="return false;">
+            <input type="text" placeholder="Name *" required>
+            <input type="email" placeholder="Email *" required>
+            <input type="text" placeholder="Contact Number">
+            <input type="text" placeholder="Your query *" required maxlength="255">
+            <span class="char-count">Characters remaining: 255</span>
+
+            <!-- Pure CSS Captcha Box -->
+            <div class="captcha-container">
+                <label class="captcha-box">
+                    <input type="checkbox" id="captcha-check">
+                    <span class="custom-checkbox"></span>
+                    <span class="captcha-text">I'm not a robot</span>
+                </label>
+                <div class="recaptcha-logo">
+                    <!-- Yahan aap apni saved image ka path laga lein -->
+                    <img src="images/captcha-logo.webp" alt="reCAPTCHA">
+                    <span>reCAPTCHA</span>
+                    <a href="#">Privacy</a> - <a href="#">Terms</a>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-submit">
+                Send Your Query 
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </form>
+    </div>
+</section>
+
+<section class="partners-footer-section">
+  <!-- 1. Trusted Sponsor & Partners Section -->
+  <div class="partners-container">
+    <h2>Our Trusted <span class="highlight">Sponsor</span> & <span class="highlight">Partners</span></h2>
+
+    <!-- Top Static Row (3 Logos) -->
+    <div class="static-logos">
+      <div class="static-item"><img src="board-of-revenue.png" alt="Board of Revenue"></div>
+      <div class="static-item"><img src="pitb.png" alt="PITB"></div>
+      <div class="static-item"><img src="industries.png" alt="Industries Department"></div>
+    </div>
+
+    <!-- Bottom Moving Ticker (Right to Left Continuous Loop) -->
+    <div class="ticker-wrapper">
+      <div class="ticker-track">
+        <!-- Original 20 Logos (Yahan apne images ke real paths lagayein) -->
+        <div class="logo-item"><img src="logo4.png" alt="1"></div>
+        <div class="logo-item"><img src="logo5.png" alt="2"></div>
+        <div class="logo-item"><img src="logo6.png" alt="3"></div>
+        <div class="logo-item"><img src="logo7.png" alt="4"></div>
+        <div class="logo-item"><img src="logo8.png" alt="5"></div>
+        <div class="logo-item"><img src="logo9.png" alt="6"></div>
+        <div class="logo-item"><img src="logo10.png" alt="7"></div>
+        <div class="logo-item"><img src="logo11.png" alt="8"></div>
+        <div class="logo-item"><img src="logo12.png" alt="9"></div>
+        <div class="logo-item"><img src="logo13.png" alt="10"></div>
+        <div class="logo-item"><img src="logo14.png" alt="11"></div>
+        <div class="logo-item"><img src="logo15.png" alt="12"></div>
+        <div class="logo-item"><img src="logo16.png" alt="13"></div>
+        <div class="logo-item"><img src="logo17.png" alt="14"></div>
+        <div class="logo-item"><img src="logo18.png" alt="15"></div>
+        <div class="logo-item"><img src="logo19.png" alt="16"></div>
+        <div class="logo-item"><img src="logo20.png" alt="17"></div>
+        <div class="logo-item"><img src="logo21.png" alt="18"></div>
+        <div class="logo-item"><img src="logo22.png" alt="19"></div>
+        <div class="logo-item"><img src="logo23.png" alt="20"></div>
+
+        <!-- Duplicate first few logos for seamless infinite loop effect -->
+        <div class="logo-item"><img src="logo4.png" alt="1"></div>
+        <div class="logo-item"><img src="logo5.png" alt="2"></div>
+        <div class="logo-item"><img src="logo6.png" alt="3"></div>
+        <div class="logo-item"><img src="logo7.png" alt="4"></div>
+        <div class="logo-item"><img src="logo8.png" alt="5"></div>
+        <div class="logo-item"><img src="logo9.png" alt="6"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Actual Footer Info Details Row -->
+  <div class="footer-info-grid">
+    <div class="footer-col brand-col">
+      <img src="epay-logo-urdu.png" alt="ePay Punjab" class="urdu-logo">
+      <p>It is a collective effort between Punjab Finance Department and Punjab Information Technology Board (PITB).</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Address</h3>
+      <p>Arfa Software Technology Park, 346-B<br>Ferozepur Road, Lahore, Punjab 54000</p>
+      <h3 class="fax-title">Fax</h3>
+      <p>+92 - 42 - 99232123</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Email</h3>
+      <p><a href="mailto:support@epay.punjab.gov.pk">support@epay.punjab.gov.pk</a></p>
+      <h3>Follow Us</h3>
+      <div class="social-links">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-youtube"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Bottom Copyright Links Bar -->
+  <div class="footer-bottom-bar">
+    <div class="policy-links">
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <p class="copyright-text">© 2026 - Powered by Punjab Information Technology Board</p>
+  </div>
+</section>
 </body>
 </html>
