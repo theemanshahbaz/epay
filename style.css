@@ -1627,6 +1627,7 @@ transform:translateX(0);
     }
 }
 /* Core Styling & Reset */
+/* Core Styling & Reset */
 * {
   margin: 0;
   padding: 0;
@@ -1654,7 +1655,7 @@ body {
 }
 
 .voices-header h2 span {
-  color: #28a745; /* ePay exact theme green */
+  color: #28a745;
 }
 
 .voices-header p {
@@ -1663,35 +1664,45 @@ body {
   margin-bottom: 45px;
 }
 
-/* Outer Slider Wrapper (Hides overflowing cards) */
+/* Outer Slider Wrapper */
 .slider-container {
   width: 100%;
   overflow: hidden; 
-  padding: 20px 0;
+  padding: 40px 0; 
   position: relative;
 }
 
 /* Horizontal Moving Track */
 .slider-track {
-  display: table;
+  display: flex; 
   width: max-content;
-  white-space: nowrap;
-  /* 12 unique cards chalne ke liye loop thoda slow kiya h taake easy read ho sake */
-  animation: scrollTimeline 50s linear infinite; 
+  /* cubic-bezier lagaya hai taake jhatka khatam ho aur slide soft lagay */
+  animation: smoothStepScroll 48s infinite cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
-/* Card Design Matching The Screenshots */
+/* 🚀 RESPONSIVE CARD DESIGN FOR EXACTLY 3 CARDS */
 .testimonial-card {
-  display: inline-block;
-  vertical-align: top;
-  width: 420px; 
-  background: #f8f9fa; /* Light grey block layer tint */
+  flex-shrink: 0;
+  /* 100vw (poori screen width) ko 3 hisson me baanta aur margins subtract kiye */
+  width: calc((100vw - 90px) / 3); 
+  min-width: 300px; /* Mobile responsive safety fallback */
+  background: #f8f9fa; 
   border-radius: 18px; 
   padding: 28px;
-  margin: 0 15px; /* Spacing between cards */
+  margin: 0 15px; /* Left + Right margin = 30px total per card */
   text-align: left;
   white-space: normal; 
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, background 0.3s ease;
+}
+
+/* 🚀 SMOOTH POPUP EFFECT */
+.testimonial-card:hover {
+  transform: translateY(-12px) scale(1.03); /* Soft scaling aur upward push */
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+  background: #ffffff; 
+  position: relative;
+  z-index: 10;
 }
 
 /* Content Text Parameters */
@@ -1700,7 +1711,7 @@ body {
   line-height: 1.6;
   color: #334155;
   font-weight: 400;
-  min-height: 115px; /* Uniform height baseline */
+  min-height: 115px; 
   margin-bottom: 20px;
 }
 
@@ -1736,19 +1747,617 @@ body {
   color: #64748b;
 }
 
-/* Hover effect to freeze the track */
-.slider-container:hover .slider-track {
-  animation-play-state: paused;
+/* 🚀 SMOOTH STEP SCROLLING VIA PERCENTAGE VW
+Har single card switch standard screen ke mutabiq translate ho ga */
+@keyframes smoothStepScroll {
+  0%, 6%      { transform: translate3d(0, 0, 0); }
+  8%, 14%     { transform: translate3d(calc(-100vw / 3), 0, 0); }
+  16%, 22%    { transform: translate3d(calc(-200vw / 3), 0, 0); }
+  24%, 30%    { transform: translate3d(calc(-300vw / 3), 0, 0); }
+  32%, 38%    { transform: translate3d(calc(-400vw / 3), 0, 0); }
+  40%, 46%    { transform: translate3d(calc(-500vw / 3), 0, 0); }
+  48%, 54%    { transform: translate3d(calc(-600vw / 3), 0, 0); }
+  56%, 62%    { transform: translate3d(calc(-700vw / 3), 0, 0); }
+  64%, 70%    { transform: translate3d(calc(-800vw / 3), 0, 0); }
+  72%, 78%    { transform: translate3d(calc(-900vw / 3), 0, 0); }
+  80%, 86%    { transform: translate3d(calc(-1000vw / 3), 0, 0); }
+  88%, 94%    { transform: translate3d(calc(-1000vw / 3 - 350px), 0, 0); } /* Buffer handles */
+  96%, 100%   { transform: translate3d(calc(-1000vw / 3 - 700px), 0, 0); }
 }
 
-/* CSS Keyframe Animation Setup */
-/* 12 unique cards. Each card occupies 420px + 30px (margin) = 450px space. 
-Total distance before smooth loop reset = 450px * 12 */
-@keyframes scrollTimeline {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(calc(-450px * 12), 0, 0);
-  }
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+    background:#ffffff;
+    overflow-x:hidden;
+
+}
+
+
+
+/* =========================
+   TESTIMONIAL GAP
+========================= */
+
+.voices-section{
+
+    margin-bottom:80px;
+
+}
+
+
+
+/* =========================
+   DOWNLOAD SECTION
+========================= */
+
+.download-section{
+
+    width:100%;
+
+    padding:80px 5%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#fff;
+
+}
+
+
+
+/* =========================
+   BLACK MAIN CARD
+========================= */
+
+
+.black-card{
+
+    width:100%;
+
+    max-width:1150px;
+
+    min-height:390px;
+
+    background:#000;
+
+    border-radius:24px;
+
+
+    padding:60px 45px 0px 60px;
+
+
+    display:flex;
+
+    align-items:center;
+
+
+    position:relative;
+
+
+    overflow:visible;
+
+
+}
+
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+
+.content-side{
+
+
+    width:45%;
+
+    color:white;
+
+    padding-bottom:50px;
+
+
+}
+
+
+
+.content-side h2{
+
+
+    font-size:45px;
+
+    font-weight:700;
+
+    line-height:1.15;
+
+    margin-bottom:12px;
+
+
+}
+
+
+
+.green-text{
+
+    color:#22c55e;
+
+}
+
+
+
+.content-side p{
+
+
+    font-size:16px;
+
+    color:#d1d5db;
+
+    margin-bottom:35px;
+
+
+}
+
+
+
+/* =========================
+   STORE BUTTONS
+========================= */
+
+
+.store-buttons{
+
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:center;
+
+
+}
+
+
+
+.store-btn img{
+
+
+    height:48px;
+
+    width:auto;
+
+    display:block;
+
+
+}
+
+
+
+
+
+/* =========================
+   PHONE AREA
+========================= */
+
+
+.phones-side{
+
+
+    width:55%;
+
+    height:430px;
+
+    position:relative;
+
+
+    align-self:flex-end;
+
+
+}
+
+
+
+
+
+/* BACK PHONE */
+
+.phone-back{
+
+
+    position:absolute;
+
+
+    bottom:0;
+
+
+    right:190px;
+
+
+    height:360px;
+
+
+    z-index:1;
+
+
+}
+
+
+
+
+
+/* FRONT PHONE */
+
+
+.phone-front{
+
+
+    position:absolute;
+
+
+    bottom:-30px;
+
+
+    right:-25px;
+
+
+    height:450px;
+
+
+    z-index:2;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   HOVER EFFECT
+========================= */
+
+
+.phone-front,
+.phone-back{
+
+
+    transition:0.4s ease;
+
+
+}
+
+
+.black-card:hover .phone-front{
+
+
+    transform:translateY(-10px);
+
+
+}
+
+
+.black-card:hover .phone-back{
+
+
+    transform:translateY(-5px);
+
+
+}
+
+
+
+
+
+
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+
+@media(max-width:992px){
+
+
+    .black-card{
+
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:50px 25px 0;
+
+
+    }
+
+
+    .content-side{
+
+
+        width:100%;
+
+        padding-bottom:20px;
+
+
+    }
+
+
+
+    .store-buttons{
+
+
+        justify-content:center;
+
+
+    }
+
+
+
+    .phones-side{
+
+
+        width:100%;
+
+        height:380px;
+
+        margin-top:20px;
+
+
+    }
+
+
+
+    .phone-back{
+
+
+        right:52%;
+
+        transform:translateX(20%);
+
+
+    }
+
+
+
+    .phone-front{
+
+
+        right:35%;
+
+        transform:translateX(50%);
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:600px){
+
+
+    .download-section{
+
+        padding:50px 20px;
+
+    }
+
+
+
+    .black-card{
+
+
+        border-radius:18px;
+
+
+    }
+
+
+
+    .content-side h2{
+
+
+        font-size:32px;
+
+
+    }
+
+
+
+    .store-buttons{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+    .phone-front{
+
+
+        height:330px;
+
+
+    }
+
+
+
+    .phone-back{
+
+
+        height:270px;
+
+
+        right:140px;
+
+
+    }
+
+
+
+}
+.faq-section {
+    background: radial-gradient(circle at left, rgba(40, 167, 69, 0.05), transparent 40%),
+                radial-gradient(circle at right, rgba(23, 162, 184, 0.05), transparent 40%),
+                #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.faq-container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.faq-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 40px;
+    line-height: 1.3;
+}
+
+.faq-title span.green {
+    color: #28a745;
+}
+
+.faq-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid #eef0f2;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Browser ka default arrow/marker hatanay k liye */
+.faq-question::-webkit-details-marker,
+.faq-question::marker {
+    display: none;
+}
+
+.faq-question {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a1a1a;
+    user-select: none;
+    list-style: none; /* Default marker removal */
+}
+
+.faq-question:hover {
+    background-color: #fafafa;
+}
+
+.faq-answer {
+    padding: 0 25px 25px 25px;
+    color: #4a4a4a;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-top: 1px solid #f1f3f5;
+}
+
+.faq-icon {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+    color: #6c757d;
+}
+
+/* Open State CSS - Jab item open ho jaye */
+.faq-item[open] {
+    border-color: #e2e5e9;
+}
+
+.faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* Pehly se closed items me answer tab tak chipa rahy */
+.faq-item:not([open]) .faq-answer {
+    display: none;
+}
+
+/* Footer Button Styles */
+.faq-footer {
+    margin-top: 30px;
+}
+
+.faq-footer p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.btn-explore {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(to right, #28a745, #17a2b8);
+    color: #fff;
+    padding: 14px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.btn-explore:hover {
+    opacity: 0.9;
+}
+
+.btn-explore svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
