@@ -1626,3 +1626,129 @@ transform:translateX(0);
         align-items: center;
     }
 }
+/* Core Styling & Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  padding: 60px 0;
+}
+
+/* Header Text Alignments */
+.voices-section {
+  width: 100%;
+  text-align: center;
+}
+
+.voices-header h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.voices-header h2 span {
+  color: #28a745; /* ePay exact theme green */
+}
+
+.voices-header p {
+  font-size: 17px;
+  color: #64748b;
+  margin-bottom: 45px;
+}
+
+/* Outer Slider Wrapper (Hides overflowing cards) */
+.slider-container {
+  width: 100%;
+  overflow: hidden; 
+  padding: 20px 0;
+  position: relative;
+}
+
+/* Horizontal Moving Track */
+.slider-track {
+  display: table;
+  width: max-content;
+  white-space: nowrap;
+  /* 12 unique cards chalne ke liye loop thoda slow kiya h taake easy read ho sake */
+  animation: scrollTimeline 50s linear infinite; 
+}
+
+/* Card Design Matching The Screenshots */
+.testimonial-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 420px; 
+  background: #f8f9fa; /* Light grey block layer tint */
+  border-radius: 18px; 
+  padding: 28px;
+  margin: 0 15px; /* Spacing between cards */
+  text-align: left;
+  white-space: normal; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+}
+
+/* Content Text Parameters */
+.feedback-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #334155;
+  font-weight: 400;
+  min-height: 115px; /* Uniform height baseline */
+  margin-bottom: 20px;
+}
+
+/* Footer Element inside Card */
+.user-info {
+  display: block;
+}
+
+.user-dp {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; 
+  object-fit: cover;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+.user-details {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.user-details h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1px;
+}
+
+.user-details span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* Hover effect to freeze the track */
+.slider-container:hover .slider-track {
+  animation-play-state: paused;
+}
+
+/* CSS Keyframe Animation Setup */
+/* 12 unique cards. Each card occupies 420px + 30px (margin) = 450px space. 
+Total distance before smooth loop reset = 450px * 12 */
+@keyframes scrollTimeline {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-450px * 12), 0, 0);
+  }
+}
